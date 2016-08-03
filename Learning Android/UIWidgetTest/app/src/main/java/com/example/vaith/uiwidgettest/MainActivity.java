@@ -1,5 +1,6 @@
 package com.example.vaith.uiwidgettest;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
        this.button = (Button) findViewById(R.id.button);
@@ -65,25 +67,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                progress += 10;
 //                this.progressBar.setProgress(progress);
 
-                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-                dialog.setTitle("This is dialog");
-                dialog.setMessage("Something important");
-                dialog.setCancelable(false);
-                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener(){
-                   @Override
-                    public void onClick(DialogInterface dialog, int which)
-                   {
-                       Toast.makeText(MainActivity.this, "Ok", Toast.LENGTH_SHORT).show();
-                   }
-                });
+//                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+//                dialog.setTitle("This is dialog");
+//                dialog.setMessage("Something important");
+//                dialog.setCancelable(false);
+//                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener(){
+//                   @Override
+//                    public void onClick(DialogInterface dialog, int which)
+//                   {
+//                       Toast.makeText(MainActivity.this, "Ok", Toast.LENGTH_SHORT).show();
+//                   }
+//                });
+//
+//                dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which)
+//                    {
+//                        Toast.makeText(MainActivity.this ,"Cancel", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                dialog.show();
 
-                dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
-                    @Override
-                    public void onClick(DialogInterface dialog, int which)
-                    {
-                        Toast.makeText(MainActivity.this ,"Cancel", Toast.LENGTH_SHORT).show();
-                    }
-                });
+
+                ProgressDialog dialog = new ProgressDialog(this);
+                dialog.setTitle("This is title");
+                dialog.setMessage("This is message");
+                dialog.setCancelable(false);
                 dialog.show();
                 break;
             default:
