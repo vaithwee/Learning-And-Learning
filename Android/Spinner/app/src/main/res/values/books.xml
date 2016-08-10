@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="books">
+        <item name="java">Java</item>
+        <item name="swift">Swift</item>
+        <item name="javascrpte">JavaScript</item>
+        <item name="objc">Objective-C</item>
+    </string-array>
+
+</resources>
