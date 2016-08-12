@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Font Size"
+        android:icon="@mipmap/ic_launcher"
+        android:showAsAction="always|withText">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/font_10"
+                    android:title="10号字体" />
+                <item android:id="@+id/font_12"
+                    android:title="12号字体" />
+                <item android:id="@+id/font_14"
+                    android:title="14号字体" />
+                <item android:id="@+id/font_16"
+                    android:title="16号字体" />
+                <item android:id="@+id/font_18"
+                    android:title="18号字体" />
+            </group>
+        </menu>
+    </item>
+    <item android:id="@+id/plain_item"
+        android:title="普通菜单"
+        android:showAsAction="always|withText">
+
+    </item>
+    <item android:title="字体颜色"
+        android:id="@+id/font_color"
+        android:showAsAction="always">
+        <menu>
+            <group>
+                <item android:id="@+id/color_red"
+                    android:title="红色" />
+                <item android:id="@+id/color_green"
+                    android:title="绿色" />
+                <item android:id="@+id/color_blue"
+                    android:title="蓝色" />
+            </group>
+        </menu>
+    </item>
+</menu>
