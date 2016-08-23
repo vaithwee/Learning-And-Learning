@@ -3,14 +3,18 @@ package com.example.vaith.database;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.net.Uri;
 import android.opengl.EGLDisplay;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CursorAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.SimpleCursorAdapter;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -44,8 +48,12 @@ public class MainActivity extends AppCompatActivity {
                     insertData(database, title, content);
                     Cursor cursor = database.rawQuery("select * from news_inf", null);
                     infalteList(cursor);
-                } catch (SQLException e){
+                } catch (SQLiteException e){
                     e.printStackTrace();
+                    database.execSQL("CREATE TABLE news_inf (_id integer primary key autoincrement, news_title varchar(50), news_content varchar(255))");
+                    insertData(database, title, content);
+                    Cursor cursor = database.rawQuery("SELECT * FROM news_inf", null);
+                    infalteList(cursor);
                 }
             }
         });
@@ -57,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void infalteList(Cursor cursor)
     {
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(MainActivity.this, R.layout.cell, cursor, new String[] {"news_title", "news_content"}, new int[] {R.id.title, R.id.content}, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+        tableView.setAdapter(adapter);
 
     }
 
@@ -64,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void insertData(SQLiteDatabase db, String title, String content)
     {
-
+        database.execSQL("insert into news_inf values (null, ?, ?)", new String[]{title, content});
     }
 
     @Override
