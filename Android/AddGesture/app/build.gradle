@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.example.vaith.gesturezoom"
+        applicationId "com.example.vaith.addgesture"
         minSdkVersion 21
         targetSdkVersion 23
         versionCode 1
